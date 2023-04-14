@@ -191,7 +191,7 @@
             <tbody>
                 <tr>
                     <td width="35%"><b>Analysis Type:</b></td>
-                    <td>@(string.IsNullOrEmpty(ViewBag.Mummy.analysistype) ? "N/A" : ViewBag.Mummy.analysistype)</td>
+                    <td>@(ViewBag.Mummy.analysistype == null ? "N/A" : ViewBag.Mummy.analysistype.ToString())</td>
                 </tr>
                 <tr>
                     <td width="35%"><b>Analysis Done By:</b></td>

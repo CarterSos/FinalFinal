@@ -57,11 +57,6 @@ namespace Auth1.Components
                 .Select(x => x.textilefunction)
                 .Distinct();
 
-            var estimateStature = repo.masterburialsummary3
-                .Where(x => x.estimatestature != null)
-                .Select(x => (float)x.estimatestature)
-                .Distinct();
-
             var area = repo.masterburialsummary3
                 .Where(x => x.area != null && x.area != "")
                 .Select(x => x.area)
@@ -82,7 +77,6 @@ namespace Auth1.Components
                 HairColor = hairColor,
                 TextileStructure = textileStructure,
                 TextileFunction = textileFunction,
-                EstimateStature = estimateStature,
                 Area = area,
                 Femur = femur
             };

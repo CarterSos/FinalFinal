@@ -57,157 +57,159 @@
         <option value="U">Unknown</option>
     </select>
 
-    <button type="button" onclick="predict()">Predict</button>
+    <button id="custom-button">Predict</button>
 </form>
 
+<h3>Prediction:</h3>
+<h4 id="predictionResult"></h4>
 <script>
-    function predict() {
-        const Data {
-            "depth":0,
-            "sex_F":0,
-            "sex_M":0,
-            "sex_U":0,
-            "facebundles_Y":0,
-            "facebundles_N":0,
-            "goods_Y":0,
-            "goods_N":0,
-            "wrapping_W":0,
-            "wrapping_N":0,
-            "wrapping_B":0,
-            "wrapping_U":0,
-            "haircolor_A":0,
-            "haircolor_B":0,
-            "haircolor_D":0,
-            "haircolor_K":0,
-            "haircolor_U":0,
-            "ageatdeath_A":0,
-            "ageatdeath_C":0,
-            "ageatdeath_I":0,
-            "ageatdeath_IN":0,
-            "ageatdeath_N":0,
-            "ageatdeath_U":0,
+    const customButton = document.getElementById('custom-button');
+    customButton.addEventListener('click', function (event) {
+        event.preventDefault();
+        const Data = {
+            "depth": 0,
+            "sex_F": 0,
+            "sex_M": 0,
+            "sex_U": 0,
+            "facebundles_Y": 0,
+            "facebundles_N": 0,
+            "goods_Y": 0,
+            "goods_N": 0,
+            "wrapping_W": 0,
+            "wrapping_N": 0,
+            "wrapping_B": 0,
+            "wrapping_U": 0,
+            "haircolor_A": 0,
+            "haircolor_B": 0,
+            "haircolor_D": 0,
+            "haircolor_K": 0,
+            "haircolor_U": 0,
+            "ageatdeath_A": 0,
+            "ageatdeath_C": 0,
+            "ageatdeath_I": 0,
+            "ageatdeath_IN": 0,
+            "ageatdeath_N": 0,
+            "ageatdeath_U": 0,
+
+        }
+
+        function predict() {
+
+            var depth = document.getElementById("depth").value;
+            var sex = document.getElementById("sex").value;
+            var face_bundles = document.getElementById("face_bundles").value;
+            var goods = document.getElementById("goods").value;
+            var wrapping = document.getElementById("wrapping").value;
+            var hair_color = document.getElementById("hair_color").value;
+            var age_at_death = document.getElementById("age_at_death").value;
+            Data.depth = parseFloat(depth);
             
-        }
-
-        var depth = document.getElementById("depth").value;
-        var sex = document.getElementById("sex").value;
-        var face_bundles = document.getElementById("face_bundles").value;
-        var goods = document.getElementById("goods").value;
-        var wrapping = document.getElementById("wrapping").value;
-        var hair_color = document.getElementById("hair_color").value;
-        var age_at_death = document.getElementById("age_at_death").value;
-        Data.depth = parseFloat(depthInput.value);
-        var prediction = "U";
-        var sex_F = 0;
-        var sex_M = 0;
-        var sex_U = 0;
-        var facebundles_Y = 0;
-        var facebundles_N = 0;
-        var goods_Y = 0;
-        var goods_N = 0;
-        var wrapping_W = 0;
-        var wrapping_N = 0;
-        var wrapping_B = 0;
-        var wrapping_U = 0;
-        var haircolor_A = 0;
-        var haircolor_B = 0;
-        var haircolor_D = 0;
-        var haircolor_K = 0;
-        var haircolor_U = 0;
-        var ageatdeath_A = 0;
-        var ageatdeath_C = 0;
-        var ageatdeath_I = 0;
-        var ageatdeath_N = 0;
-        var ageatdeath_U = 0;
 
 
-        if (sex == "M") {
-            sex_M = 1;
-        }
-        if (sex == "F") {
-            sex_F = 1;
-        }
-        if (sex == "U") {
-            sex_U = 1;
-        }
-        if (facebundles == "Y") {
-            facebundles_Y = 1;
-        }
-        if (facebundles == "N") {
-            facebundles_N = 1;
-        }
-        if (goods == "Y") {
-            goods_Y = 1;
-        }
-        if (goods == "N") {
-            goods_N = 1;
-        }
-        if (wrapping == "W") {
-            wrapping_W = 1;
-        }
-        if (wrapping == "N") {
-            wrapping_N = 1;
-        }
-        if (wrapping == "B") {
-            wrapping_B = 1;
-        }
-        if (wrapping == "U") {
-            wrapping_U = 1;
-        }
-        if (haircolor == "A") {
-            haircolor_A = 1;
-        }
-        if (haircolor == "B") {
-            haircolor_B = 1;
-        }
-        if (haircolor == "D") {
-            haircolor_D = 1;
-        }
-        if (haircolor == "K") {
-            haircolor_K = 1;
-        }
-        if (haircolor == "U") {
-            haircolor_U = 1;
-        }
-        if (ageatdeath == "A") {
-            ageatdeath_A = 1;
-        }
-        if (ageatdeath == "C") {
-            ageatdeath_C = 1;
-        }
-        if (ageatdeath == "I") {
-            ageatdeath_I = 1;
-        }
-        if (ageatdeath == "N") {
-            ageatdeath_N = 1;
-        }
-        if (ageatdeath == "U") {
-            ageatdeath_U = 1;
-        }
+            if (sex == "M") {
+                Data.sex_M = 1;
+            }
+            if (sex == "F") {
+                Data.sex_F = 1;
+            }
+            if (sex == "U") {
+                Data.sex_U = 1;
+            }
+            if (facebundles == "Y") {
+                Data.facebundles_Y = 1;
+            }
+            if (facebundles == "N") {
+                Data.facebundles_N = 1;
+            }
+            if (goods == "Y") {
+                Data.goods_Y = 1;
+            }
+            if (goods == "N") {
+                Data.goods_N = 1;
+            }
+            if (wrapping == "W") {
+                Data.wrapping_W = 1;
+            }
+            if (wrapping == "N") {
+                Data.wrapping_N = 1;
+            }
+            if (wrapping == "B") {
+                Data.wrapping_B = 1;
+            }
+            if (wrapping == "U") {
+                Data.wrapping_U = 1;
+            }
+            if (haircolor == "A") {
+                Data.haircolor_A = 1;
+            }
+            if (haircolor == "B") {
+                Data.haircolor_B = 1;
+            }
+            if (haircolor == "D") {
+                Data.haircolor_D = 1;
+            }
+            if (haircolor == "K") {
+                Data.haircolor_K = 1;
+            }
+            if (haircolor == "U") {
+                Data.haircolor_U = 1;
+            }
+            if (ageatdeath == "A") {
+                Data.ageatdeath_A = 1;
+            }
+            if (ageatdeath == "C") {
+                Data.ageatdeath_C = 1;
+            }
+            if (ageatdeath == "I") {
+                Data.ageatdeath_I = 1;
+            }
+            if (ageatdeath == "N") {
+                Data.ageatdeath_N = 1;
+            }
+            if (ageatdeath == "U") {
+                Data.ageatdeath_U = 1;
+            }
 
-        Data.depth = parseFloat(depthInput.value);
-        Data.sex_F = parseFloat(depthInput.value);
-        Data.sex_M = parseFloat(depthInput.value);
-        Data.sex_U = parseFloat(depthInput.value);
-        Data.facebundles_Y = parseFloat(depthInput.value);
-        Data.facebundles_N = parseFloat(depthInput.value);
-        Data.goods_Y = parseFloat(depthInput.value);
-        Data.goods_N = parseFloat(depthInput.value);
-        Data.wrapping_W = parseFloat(depthInput.value);
-        Data.wrapping_N = parseFloat(depthInput.value);
-        Data.wrapping_B = parseFloat(depthInput.value);
-        Data.wrapping_U = parseFloat(depthInput.value);
-        Data.haircolor_A = parseFloat(depthInput.value);
-        Data.haircolor_B = parseFloat(depthInput.value);
-        Data.haircolor_D = parseFloat(depthInput.value);
-        Data.haircolor_K = parseFloat(depthInput.value);
-        Data.haircolor_U = parseFloat(depthInput.value);
-        Data.ageatdeath_A = parseFloat(depthInput.value);
-        Data.ageatdeath_C = parseFloat(depthInput.value);
-        Data.ageatdeath_I = parseFloat(depthInput.value);
-        Data.ageatdeath_N = parseFloat(depthInput.value);
-        Data.ageatdeath_U = parseFloat(depthInput.value);
-        alert(prediction);
-    }
+            //Data.sex_F = parseFloat(sex_F.value);
+            //Data.sex_M = parseFloat(sex_M.value);
+            //Data.sex_U = parseFloat(sex_U.value);
+            //Data.facebundles_Y = parseFloat(facebundles_Y.value);
+            //Data.facebundles_N = parseFloat(facebundles_N.value);
+            //Data.goods_Y = parseFloat(goods_Y.value);
+            //Data.goods_N = parseFloat(goods_N.value);
+            //Data.wrapping_W = parseFloat(wrapping_W.value);
+            //Data.wrapping_N = parseFloat(wrapping_N.value);
+            //Data.wrapping_B = parseFloat(wrapping_B.value);
+            //Data.wrapping_U = parseFloat(wrapping_U.value);
+            //Data.haircolor_A = parseFloat(haircolor_A.value);
+            //Data.haircolor_B = parseFloat(haircolor_B.value);
+            //Data.haircolor_D = parseFloat(haircolor_D.value);
+            //Data.haircolor_K = parseFloat(haircolor_K.value);
+            //Data.haircolor_U = parseFloat(haircolor_U.value);
+            //Data.ageatdeath_A = parseFloat(ageatdeath_A.value);
+            //Data.ageatdeath_C = parseFloat(ageatdeath_C.value);
+            //Data.ageatdeath_I = parseFloat(ageatdeath_I.value);
+            //Data.ageatdeath_N = parseFloat(ageatdeath_N.value);
+            //Data.ageatdeath_U = parseFloat(ageatdeath_U.value);
+            alert(prediction);
+        }
+        fetch('/score', {
+            method: 'POST',
+            body: JSON.stringify(Data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(prediction => {
+                console.log(prediction);
+                // Update the h4 tag with the prediction result
+                document.querySelector('#predictionResult').textContent = String("Predicted head direction: " + prediction.predictedValue);
+                console.log("it got here at least");
+            })
+            .catch(error => {
+                alert("Something went wrong...");
+            });
+    })
 </script>
 <!-- result -->

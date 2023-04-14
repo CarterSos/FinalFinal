@@ -78,7 +78,7 @@ namespace Auth1.Controllers
 
         [HttpPost]
         public IActionResult Records(string BurialID, string Sex, string TextileColor, string AgeAtDeath, string HeadDirection,
-            string HairColor, string TextileStructure, string TextileFunction, float EstimateStature, string Area, string Femur, int pageNum = 1) // POST
+            string HairColor, string TextileStructure, string TextileFunction, string Area, string Femur, int pageNum = 1) // POST
         {
 
             int pageSize = 100;
@@ -96,21 +96,9 @@ namespace Auth1.Controllers
                         (TextileStructure == null || d.structure == TextileStructure) &&
                         (TextileFunction == null || d.textilefunction == TextileFunction) &&
                         (Area == null || d.area == Area) &&
-                        (Femur == null || d.femur == Femur) &&
-                        (EstimateStature == null || d.estimatestature == EstimateStature))
+                        (Femur == null || d.femur == Femur))
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
-                //masterburialsummary = repo.masterburialsummary // used to be burialmain
-                //    .OrderBy(d => d.id)
-                //    .Where(d => (Sex == null || d.sex == Sex) &&
-                //                (TextileColor == null || d.color == TextileColor) &&
-                //                (AgeAtDeath == null || d.ageatdeath == AgeAtDeath) &&
-                //                (HeadDirection == null || d.headdirection == HeadDirection) &&
-                //                (HairColor == null || d.haircolor == HairColor) &&
-                //                (TextileStructure == null || d.structure == TextileStructure) &&
-                //                (TextileFunction == null || d.textilefunction == TextileFunction))
-                //    .Skip((pageNum - 1) * pageSize)
-                //    .Take(pageSize),
 
 
                 PageInfo = new PageInfo

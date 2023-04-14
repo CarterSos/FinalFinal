@@ -15,8 +15,7 @@ namespace Auth1.Models.ViewModels
         public IEnumerable<string> HairColor { get; set; } 
         public IEnumerable<string> TextileColor { get; set; } 
         public IEnumerable<string> TextileStructure { get; set; }
-        public IEnumerable<string> TextileFunction { get; set; }
-        public IEnumerable<float> EstimateStature { get; set; }        
+        public IEnumerable<string> TextileFunction { get; set; }       
         public IEnumerable<string> Femur { get; set; }
 
 
